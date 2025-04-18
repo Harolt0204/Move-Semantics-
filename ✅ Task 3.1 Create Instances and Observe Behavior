@@ -1,0 +1,24 @@
+int main() {
+    Buffer b1(100);
+    Buffer b2 = b1;           
+    Buffer b3 = std::move(b1); 
+
+    Buffer b4(50);
+    b4 = b2;                  
+    b4 = std::move(b2);      
+    return 0;
+}
+
+**Questions**
+
+* What constructors and assignments are called and when?
+ - b1(100), b4(50) are Constructors.
+ - b2=b1 , is Copy constructor.
+ - b3= std::move(b1), b4= std::move(b2) are Move assignment. 
+ - b4=b2 is Copy assignment  
+
+* What happens to the source object after a move? 
+The source object remains empty because if its content is transferred.
+
+* What would happen if you didn’t define the move constructor/assignment?
+ Perhaps it could create a copy instead of moving and could cause errors if the source cannot be copied safely.
