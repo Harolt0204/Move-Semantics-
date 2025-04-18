@@ -1,0 +1,10 @@
+** Questions
+
+* What did you learn about move semantics?
+This allows us to optimize performance by avoiding unnecessary copies as it transfers resources without duplicating them.
+
+*  In what kinds of projects do you think this would matter?
+In any job in which we need to process large volumes of data.
+
+*  What are some risks of using std::move incorrectly?
+If we want to use an object after moving it, it may cause some unexpected behavior since we do not check if the object is in a valid state before using it.
